@@ -1,0 +1,382 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DVSNPP_Demo.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="960" d:DesignHeight="540"
+             Background="DimGray"
+             x:Class="DVSNPP_Demo.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+      <vm:MainViewModel/>
+  </Design.DataContext>
+    
+    <!-- 样式区 -->
+    <Control.Styles>
+        <Style Selector="Label">
+            <Setter Property="Foreground" Value="AliceBlue" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Background" Value="Gray"></Setter>
+        </Style>
+    </Control.Styles>
+    
+    <!-- Top gird -->
+    <Grid RowDefinitions="*">
+        
+        <!-- Main grid -->
+        <Grid RowDefinitions="Auto,*">
+            
+            <!-- 上方区 -->
+            <Grid Grid.Row="0" Background="White">
+                <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,*,Auto">
+                
+                    <Grid.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Background" Value="#13326e"/>
+                            <Setter Property="FontSize" Value="10"></Setter>
+                            <Setter Property="Margin" Value="2,1,1,1"></Setter>
+                        </Style>
+                    </Grid.Styles>
+                
+                    <Label
+                        Grid.Column="0" Foreground="Black" 
+                        FontSize="10"
+                        Content="{Binding Text_AppInterInfo}"
+                        VerticalAlignment="Center"
+                        />
+                
+                    <Button Grid.Column="1" Command="{Binding ButtonClick_SaveProject}" 
+                            Content="{Binding Txt_Save}"/>
+                    <Button Grid.Column="2" Command="{Binding ButtonClick_LoadProject}"
+                            Content="{Binding Txt_Load}"/>
+                    <Button Grid.Column="3" Command="{Binding ButtonClick_SetWorkRegionPath}" 
+                            Content="{Binding Txt_SetWorkRegion}"/>
+
+                    <Label Grid.Column="4" Foreground="Black" 
+                           FontSize="12"
+                           VerticalContentAlignment="Center"
+                           Content="{Binding Text_WorkRegion}"
+                    />
+
+                    <Button Grid.Column="6" 
+                            Command="{Binding Command_ChangeSettingPanel}" 
+                            Content="{Binding Txt_Setting}"/>
+
+                </Grid>
+            </Grid>
+            
+            <!-- 垂直方向的中下主区 -->
+            <Grid Grid.Row="1" ColumnDefinitions="4*,*">
+            
+                <!-- 工作区 -->
+                <Grid Grid.Column="0" ColumnDefinitions="Auto,*">
+                
+                    <!-- 左方获取节点 -->
+                    <Grid Grid.Column="0" Background="#2b2d30" RowDefinitions="2*,Auto,4*" MinWidth="140">
+                        
+                        <!-- 节点单元分类 -->
+                        <ListBox Name="NodeGetterSortListBox" Background="White"
+                            Grid.Row="0" SelectionChanged="OnNodeGetterSortChanged">
+                            
+                            <ListBox.Styles>
+                                <Style Selector="ListBoxItem">
+                                    <Setter Property="Background" Value="Gray" />
+                                    <Setter Property="Foreground" Value="White" />
+                                    <Setter Property="Margin" Value="3,0,5,2"/>
+                                    <Setter Property="FontSize" Value="13"/>
+                                </Style>
+                            </ListBox.Styles>
+                            
+                            <!-- ListBoxItems -->
+                            <ListBoxItem Name="NodeGetterItem_Standard">Standard</ListBoxItem>
+                            <ListBoxItem Name="NodeGetterItem_Variable">Variable</ListBoxItem>
+                            
+                            <ListBoxItem Name="UnitGetterItem_Standard">Standard Unit</ListBoxItem>
+                            <ListBoxItem Name="UnitGetterItem_Compare">Compare Unit</ListBoxItem>
+                            <ListBoxItem Name="UnitGetterItem_Calculate">Calculate Unit</ListBoxItem>
+                            
+                        </ListBox>
+                        
+                        <!-- 分割 -->
+                        <Rectangle Grid.Row="1" Fill="#315395" MinHeight="3"/>
+
+                        <!-- 获取节点 -->
+                        <ScrollViewer Grid.Row="2" 
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      VerticalScrollBarVisibility="Visible">
+                        
+                            <ScrollViewer.Styles>
+                                <Style Selector="Button">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="Margin" Value="2,5,2,0" />
+                                    <Setter Property="Padding" Value="6"/>
+                                    <Setter Property="BorderThickness" Value="2,-3,2,-3" />
+                                    <Setter Property="CornerRadius" Value="30" />
+                                    <Setter Property="MinWidth" Value="120"></Setter>
+                                    <Setter Property="FontSize" Value="18" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                                </Style>
+                            </ScrollViewer.Styles>
+                        
+                            <Grid>
+                                
+                                <!-- Node -->
+                                
+                                <!-- Standard -->
+                                <StackPanel Name="NodeGetterPanel_Standard">
+                                    <Button Command="{Binding NodeAddButtonClick_CallEvent}">Call Event</Button>
+                                    <Button Command="{Binding NodeAddButtonClick_Log}">Output</Button>
+                                    <Button Command="{Binding NodeAddButtonClick_If}">If</Button>
+                                    <Button Command="{Binding NodeAddButtonClick_Else}">Else</Button>
+                                </StackPanel>
+                            
+                                <!-- Variable -->
+                                <StackPanel Name="NodeGetterPanel_Variable" IsVisible="False">
+                                    <Button Command="{Binding NodeAddButtonClick_CreateVariable}">CreateV</Button>
+                                    <Button Command="{Binding NodeAddButtonClick_SetVariable}">SetV</Button>
+                                </StackPanel>
+                                
+                                <!-- Unit_Standard -->
+                                <StackPanel Name="UnitGetterPanel_Standard" IsVisible="False">
+                                    <Button Command="{Binding UnitAdd_GetVariable}">GetV</Button>
+                                    <Button Command="{Binding UnitAdd_Constant_Num}">Number</Button>
+                                    <Button Command="{Binding UnitAdd_Constant_Bool}">Bool</Button>
+                                    <Button Command="{Binding UnitAdd_Constant_String}">String</Button>
+                                </StackPanel>
+                                
+                                <!-- Unit_Compare -->
+                                <StackPanel Name="UnitGetterPanel_Compare" IsVisible="False">
+                                    <Button Command="{Binding UnitAdd_Equal}">Equal</Button>
+                                    <Button Command="{Binding UnitAdd_NotEqual}">NotEqual</Button>
+                                    <Button Command="{Binding UnitAdd_Greater}">Greater</Button>
+                                    <Button Command="{Binding UnitAdd_GreaterEqual}">GreaterEqual</Button>
+                                    <Button Command="{Binding UnitAdd_Less}">Less</Button>
+                                    <Button Command="{Binding UnitAdd_LessEqual}">LessEqual</Button>
+                                </StackPanel>
+                                
+                                <!-- Unit_Calculate -->
+                                <StackPanel Name="UnitGetterPanel_Calculate" IsVisible="False">
+                                    
+                                </StackPanel>
+                                
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                
+                    <!-- 中右区 -->
+                    <Grid Grid.Column="1" ColumnDefinitions="2*,Auto" Background="#262626">
+                    
+                    <!-- 节点区 -->
+                    <Grid Grid.Column="0" RowDefinitions="*,Auto">
+                        
+                        <Grid.Styles>
+                                <Style Selector="TreeViewItem">
+                                    <Setter Property="Foreground" Value="White" />
+                                </Style>
+                        </Grid.Styles>
+                        
+                        <!-- 显示节点的树 -->
+                        <TreeView Name="TreeView_Nodes"
+                                  Foreground="White" 
+                                  SelectionChanged="OnNodeTreeSelectionChanged"/>
+                        
+                        
+                        <!-- 节点操作行为 -->
+                        <Grid Grid.Row="1" Background="#181818" ColumnDefinitions="Auto,Auto,*,Auto">
+                            <Grid.Styles>
+                                <Style Selector="Button">
+                                    <Setter Property="Margin" Value="3" />
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="MinWidth" Value="80" />
+                                    <Setter Property="FontSize" Value="12"></Setter>
+                                </Style>
+                            </Grid.Styles>
+                                
+                            <!-- <Button Click="Button_RefreshNodes_Click">Refresh Nodes</ -->
+                            <Button Grid.Column="0" Click="Button_RemoveNode_Click" Content="{Binding Txt_RemoveNode}"/>
+                            <Button Grid.Column="3" Click="Button_ChangeAddUnderBranch_Click" FontSize="9"
+                                    Content="{Binding Text_AddNodeUnderBranch}" />
+                        </Grid>
+                        
+                    </Grid>
+                    
+                    <!-- 互动选中区 -->
+                    <Grid Grid.Column="1" RowDefinitions="*,Auto" Background="#1e1f22">
+                        
+                        <!-- 事件选中 -->
+                        <Grid Grid.Row="0" 
+                              RowDefinitions="*,Auto">
+                            
+                            <ListBox Grid.Row="0" Name="ListBox_NppEvent"
+                                     Background="#1e1f22"
+                                     SelectionChanged="OnNppEventSelectionChanged">
+                                
+                                <ListBox.Styles>
+                                    <Style Selector="ListBoxItem">
+                                        <Setter Property="Background" Value="DarkGray"></Setter>
+                                        <Setter Property="Foreground" Value="White"></Setter>
+                                        <Setter Property="Margin" Value="2"></Setter>
+                                    </Style>
+                                </ListBox.Styles>
+                                
+                            </ListBox>
+                            
+                        </Grid>
+                        
+                        <!-- 事件操作区 -->
+                        <Grid Grid.Row="1">
+                            <StackPanel VerticalAlignment="Bottom">
+                                
+                                <StackPanel.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Margin" Value="2" />
+                                        <Setter Property="VerticalAlignment" Value="Bottom" />
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        <Setter Property="MinWidth" Value="120"></Setter>
+                                        <Setter Property="FontSize" Value="12"></Setter>
+                                    </Style>
+                                </StackPanel.Styles>
+                                
+                                <Button Click="Button_AddNewNevent_Click" 
+                                        Content="{Binding Txt_AddEvent}"/>
+                                <Button Click="Button_RenameNevent_Click" 
+                                        Content="{Binding Txt_RenameEvent}"/>
+                                <Button Click="Button_RemoveNevent_Click" 
+                                        Content="{Binding Txt_RemoveEvent}"/>
+                                <!-- <Button Click="Button_RefreshNevent_Click">Refresh Event</Button> -->
+                                
+                            </StackPanel>
+                        </Grid>
+                        
+                    </Grid>
+                    
+                </Grid>
+                
+                </Grid>
+        
+                <!-- 运行结果显示区 -->
+                <Grid Grid.Column="1" Background="#43454A" RowDefinitions="Auto,*,Auto">
+                    
+                    <!-- 结果显示 -->
+                    <StackPanel Grid.Row="0" MaxWidth="250">
+                        
+                        <StackPanel.Styles>
+                            <Style Selector="TextBlock">
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+                            </Style>
+                        </StackPanel.Styles>
+                        
+                        <TextBlock Name="RunText_StackTrack">No Stack Track</TextBlock>
+                        <TextBlock Name="RunText_LogInfo">no vaild information</TextBlock>
+                    </StackPanel>
+                    
+                    <!-- 运行操作区 -->
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft">
+                        
+                        <StackPanel.Styles>
+                            <Style Selector="Button">
+                                <Setter Property="Margin" Value="5,0,0,6"></Setter>
+                            </Style>
+                        </StackPanel.Styles>
+                        
+                        <Button Command="{Binding ButtonClick_RunNodes}">Run Nodes</Button>
+                        
+                    </StackPanel>
+                    
+            </Grid>
+            
+            </Grid>
+        
+        </Grid>
+        
+        <!-- 操作提示 -->
+        <Grid RowDefinitions="*,*,8*" ZIndex="10">
+            <StackPanel Grid.Row="1" Name="Panel_Tips">
+                
+            </StackPanel>
+        </Grid>
+        
+        <!-- Setting -->
+        <Grid Grid.Row="0" ZIndex="5"
+              Name="Window_Setting"
+              Background="#0f0f13"
+              MinHeight="100" MinWidth="100"
+              MaxHeight="300" MaxWidth="500"
+              IsVisible="{Binding SettingPanelDisplay}"
+              RowDefinitions="Auto,Auto,*">
+            
+            <Grid Grid.Row="0" Background="#2b2d33"
+                  ColumnDefinitions="Auto,*,Auto">
+                <Label Grid.Column="0" VerticalAlignment="Center" Margin="2,0,0,0" Content="{Binding Txt_Setting}" />
+                <Button Grid.Column="2" HorizontalAlignment="Right" Margin="2,4,3,4"
+                        Command="{Binding Command_CloseSetting}">Close</Button>
+            </Grid>
+            
+            <StackPanel Grid.Row="1" Margin="7">
+                <Label Content="{Binding Txt_Language}"/>
+                <ComboBox Name="ComboBox_Language" SelectionChanged="Clicked_LanguageSelectedChanged"/>
+            </StackPanel>
+
+        </Grid>
+        
+        <!-- 上方窗口_重命名事件 -->
+        <Grid Grid.Row="0" ZIndex="1"
+              Name="Window_RenameNevent"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Background="#2b2d30"
+              IsVisible="False">
+            <StackPanel>
+                
+                <Label Name="Label_RenameNevent"
+                       HorizontalAlignment="Center" Margin="20,10,20,10">_RenameNevent</Label>
+                <TextBox HorizontalAlignment="Center" Name="TextBox_RenameNevent" MinWidth="180" Margin="5"></TextBox>
+                
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                    
+                    <StackPanel.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Margin" Value="4,0,4,10"></Setter>
+                            <Setter Property="MinWidth" Value="65"></Setter>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                        </Style>
+                    </StackPanel.Styles>
+                    
+                    <Button Click="Button_WindowRenameNevent_Apply">Apply</Button>
+                    <Button Click="Button_WindowRenameNevent_Cancel">Cancel</Button>
+                    
+                </StackPanel>
+                
+            </StackPanel>
+        </Grid>
+        
+        <!-- 获取文件路径 -->
+        <Grid  ZIndex="1"
+               Name="Window_AccessDisk"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Background="#2b2d30"
+               MinWidth="200" MinHeight="100"
+               IsVisible="False">
+            <StackPanel Margin="20,5,20,0" Spacing="10">
+                
+                <Label>Key in your path of the file or folder</Label>
+                <TextBox Margin="0,0,0,10"  Name="TextBox_PathChoose"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="0,0,0,10">
+                    <Button>Cancel</Button>
+                    <Button>Confirm</Button>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+    
+</UserControl>

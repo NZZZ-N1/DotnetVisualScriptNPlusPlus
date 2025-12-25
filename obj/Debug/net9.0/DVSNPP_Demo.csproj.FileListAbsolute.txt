@@ -1,0 +1,17 @@
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\bin\Debug\net9.0\DVSNPP_Demo.deps.json
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\bin\Debug\net9.0\DVSNPP_Demo.dll
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\bin\Debug\net9.0\DVSNPP_Demo.pdb
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\DVSNPP_Demo.csproj.AssemblyReference.cache
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\Avalonia\Resources.Inputs.cache
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\Avalonia\resources
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\DVSNPP_Demo.GeneratedMSBuildEditorConfig.editorconfig
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\DVSNPP_Demo.AssemblyInfoInputs.cache
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\DVSNPP_Demo.AssemblyInfo.cs
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\DVSNPP_Demo.csproj.CoreCompileInputs.cache
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\DVSNPP_Demo.dll
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\refint\DVSNPP_Demo.dll
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\DVSNPP_Demo.pdb
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\ref\DVSNPP_Demo.dll
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\bin\Debug\net9.0\DotnetVisualScriptNPlusPlus.dll
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\obj\Debug\net9.0\DVSNPP_D.57535001.Up2Date
+F:\Ahead_CodeProjects\DVSNPP_Demo\DVSNPP_Demo\bin\Debug\net9.0\EasySaving.dll
