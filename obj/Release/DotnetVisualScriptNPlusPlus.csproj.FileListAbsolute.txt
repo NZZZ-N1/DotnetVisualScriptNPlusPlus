@@ -1,0 +1,6 @@
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\bin\Release\DotnetVisualScriptNPlusPlus.dll
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\bin\Release\DotnetVisualScriptNPlusPlus.pdb
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\obj\Release\DotnetVisualScriptNPlusPlus.csproj.AssemblyReference.cache
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\obj\Release\DotnetVisualScriptNPlusPlus.csproj.CoreCompileInputs.cache
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\obj\Release\DotnetVisualScriptNPlusPlus.dll
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\obj\Release\DotnetVisualScriptNPlusPlus.pdb

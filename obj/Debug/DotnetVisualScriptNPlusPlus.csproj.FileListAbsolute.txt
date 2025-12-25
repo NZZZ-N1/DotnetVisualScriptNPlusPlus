@@ -1,0 +1,6 @@
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\bin\Debug\DotnetVisualScriptNPlusPlus.dll
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\bin\Debug\DotnetVisualScriptNPlusPlus.pdb
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\obj\Debug\DotnetVisualScriptNPlusPlus.csproj.AssemblyReference.cache
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\obj\Debug\DotnetVisualScriptNPlusPlus.csproj.CoreCompileInputs.cache
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\obj\Debug\DotnetVisualScriptNPlusPlus.dll
+F:\Ahead_CodeProjects\DotnetVisualScriptNPlusPlus\obj\Debug\DotnetVisualScriptNPlusPlus.pdb
